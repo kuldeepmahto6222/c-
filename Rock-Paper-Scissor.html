@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .images {
+
+            height: 50px;
+
+        }
+
+        .button {
+            background-color: transparent;
+            border:3px  solid white;
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .button:active{
+            opacity:0.4;
+        }
+        .js-result{
+            font-size: 30px;
+            color:white;
+            margin-left: 15px;
+            margin-top:40px;
+            margin-bottom: 30px;
+        }
+        .js-move-result{
+            margin-top: 20px;
+            color: white;
+            font-size: 20px;
+        }
+        .result-Icon {
+            height: 50px;
+
+        }
+        .scoreUpdate{
+            font-size: 20px;
+            color: white;
+        }
+        .reset-Button{
+            padding: 6px 6px;
+        }
+        .reset-Button:hover{
+            opacity: 0.6;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p style="color: white;font-size: 30px;font-weight: bold;">Rock Paper Scissor</p>
+    <button onclick="pickPlayerMove('rock');"class="button"><img class="images" src="images/rock-emoji.png"></button>
+    <button onclick="pickPlayerMove('paper');" class="button"><img class="images" src="images/paper-emoji.png"></button>
+    <button onclick="pickPlayerMove('scissor');" class="button"><img class="images" src="images/scissor-emoji.png"></button>
+    
+    <p class="js-result"></p>
+    <p class="js-move-result"></p>
+    <p class="scoreUpdate"></p>
+    <button class="reset-Button" onclick="resetScore();">Reset Score</button>
+
+
+    <script>
+
+        let score=JSON.parse(localStorage.getItem('score')) || {
+            Win:0,
+            Lost:0,
+            Tie:0
+        };
+
+          scoreUpdate();
+
+        function pickPlayerMove(playerMove)
+        {
+            const computerMove=pickComputerMove();
+            console.log(pickComputerMove());
+            let result='';
+            if(playerMove==='rock')
+            {
+                if(computerMove==='paper')
+                {
+                result= 'Lost';
+                }
+               
+                else if (computerMove==='scissor')
+                {
+                result= 'Win';
+                }
+             
+                else
+                {
+                result= 'Tie';
+                }
+            }
+            else if(playerMove==='paper')
+            {
+                if(computerMove==='paper')
+                {
+                result= 'Tie';
+                }
+               
+                else if (computerMove==='scissor')
+                {
+                result= 'Lost';
+                }
+             
+                else
+                {
+                result= 'Win';
+                }
+            }
+            else if(playerMove==='scissor') 
+            {
+                if(computerMove==='paper')
+                {
+                 result= 'Win';
+                }
+               
+                else if (computerMove==='scissor')
+                {
+                result= 'Tie';
+                }
+             
+                else
+                {
+                result= 'Lost';
+                }
+            }
+
+            if(result==='Win')
+            {
+            score.Win+=1;
+            }
+
+            else if(result==='Lost')
+            {
+            score.Lost+=1;
+            }
+
+            else(result==='Tie')
+            {
+            score.Tie+=1;
+            }
+
+            localStorage.setItem('score',JSON.stringify(score));
+           
+
+            document.querySelector('.js-result').innerHTML=`${result}`;
+            document.querySelector('.js-move-result').innerHTML=`You <img src="images/${playerMove}-emoji.png" class="result-Icon">-
+            <img src="images/${computerMove}-emoji.png" class="result-Icon"> Computer`;
+            scoreUpdate();
+        }
+        
+
+
+        function pickComputerMove()
+        {
+            const cmptr=Math.random();
+            let compMove='';
+            if(cmptr<=0.3)
+            {
+            return 'rock';
+            }
+           
+            else if(cmptr>0.3 && cmptr<=0.6)
+            {
+            return 'paper';
+            }
+
+            else
+            {
+            return 'scissor';
+            }
+        }
+        function scoreUpdate()
+        {
+            document.querySelector('.scoreUpdate').innerHTML=`Win=${score.Win}, Lost=${score.Lost}, Tie=${score.Tie}`;
+        }
+
+        function resetScore()
+        {
+            score.Win=0;
+            score.Lost=0;
+            score.Tie=0;
+            localStorage.removeItem('score');
+            scoreUpdate();
+
+        }
+
+       
+    </script>
+</body>
+
+</html>
