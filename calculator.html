@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+
+        body{
+
+         background-color: black;
+            
+        }
+
+        .number-button{
+            height: 60px;
+            width:60px;
+            margin-bottom: 10px;
+            margin-left: 5px;
+            border-radius: 30px;
+            border: none;
+            background-color: rgb(97, 93, 93);
+            color:white;
+            font-size: 25px;
+            
+        }
+
+        .cross{
+            background-color: black;
+            padding-left: 10px;
+        }
+
+        .symbol-button{
+            height: 60px;
+            width:60px;
+            margin-bottom: 10px;
+            margin-left: 5px;
+            border-radius: 30px;
+            border: none;
+            background-color: rgb(254, 160, 10);
+            color:white;
+            font-size: 25px;
+        }
+
+        .js-result{
+            padding-left: 20px;
+            color: white;
+            font-size: 35px;
+            font-family: bold;
+        }
+
+        .clear-button {
+            height: 60px;
+            width:60px;
+            margin-left: 5px;
+           border-radius: 30px;
+            border: none;
+            background-color: white(254, 160, 10);
+            color:black;
+            font-size: 17px;
+        }
+        .cross-button{
+            height: 60px;
+            width:60px;
+            margin-top: 0px;
+            margin-left: 5px;
+            margin-right: 15px;
+            border-radius: 30px;
+            border: none;
+            background-color: white(254, 160, 10);
+            color:black;
+            font-size: 17px;
+        }
+
+
+        .cross-image{
+            height:50%;
+
+         
+        }
+       
+        
+        .number-button:active{
+            opacity:0.4;
+        }
+
+        .symbol-button:active{
+            opacity: 0.4;
+        }
+
+    </style>
+</head>
+<body>
+    <p class="js-result">0</p>
+    <button onclick="pressButton('1');" class="number-button">1</button>
+    <button onclick="pressButton('2');" class="number-button">2</button>
+    <button onclick="pressButton('3');" class="number-button">3</button>
+    <button onclick="pressButton('+');" class="symbol-button">+</button>
+    <br>
+    <button onclick="pressButton('4');" class="number-button">4</button>
+    <button onclick="pressButton('5');" class="number-button">5</button>
+    <button onclick="pressButton('6');" class="number-button">6</button>
+    <button onclick="pressButton('-');" class="symbol-button">-</button>
+    <br>
+    <button onclick="pressButton('7');" class="number-button">7</button>
+    <button onclick="pressButton('8');" class="number-button">8</button>
+    <button onclick="pressButton('9');" class="number-button">9</button>
+    <button onclick="pressButton('*');" class="symbol-button">*</button>
+    <br>
+    <button onclick="pressButton('0');" class="number-button" >0</button>
+    <button onclick="pressButton('.');" class="number-button">.</button>
+    <button  onclick="displayResult();" class="number-button">=</button>
+    <button onclick="pressButton('/');" class="symbol-button">/</button>
+    <br>
+    <button onclick="clearr();" class="clear-button">Clear</button>
+    <button onclick="reset();" class="cross-button"><img class="cross-image" src="images/cancel-symbol.jpg"></button>
+
+
+    <script>
+        
+        
+        let calculation='';
+        
+       
+
+        function pressButton(value)
+        {
+           
+            calculation+=value;
+            document.querySelector('.js-result').innerHTML=calculation;
+
+           
+        }
+
+        function clearr()
+        {
+            
+            document.querySelector('.js-result').innerHTML= 0;
+            calculation="";
+           
+        }
+
+        function reset()
+        {
+            
+            calculation=calculation.substring(0,calculation.length-1);
+            document.querySelector('.js-result').innerHTML=calculation;
+        }
+
+        function displayResult()
+        {
+            calculation=eval(calculation);
+            document.querySelector('.js-result').innerHTML=calculation;
+        }
+
+        
+            
+            
+        
+    </script>
+</body>
+</html>
