@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Home Page </title>
+    <style>
+        body {
+            margin-top: 80px;
+            margin-left: 120px;
+            background-color: rgb(245, 241, 241);
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            height: 60px;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            background-color: white;
+            border-bottom-width: 1px;
+            border-bottom-color: rgb(238, 235, 235);
+            border-bottom-style: solid;
+
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 165px;
+            margin-left: 25px;
+        }
+
+        .middle {
+
+            flex: 1;
+            background-color: white;
+            margin-left: 200px;
+            margin-right: 220px;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .right {
+
+            width: 200px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        .hamburger_icon {
+            height: 25px;
+            width: 25px;
+
+        }
+
+        .youtube_icon {
+            height: 50px;
+            width: 100px;
+
+        }
+
+        .search_box {
+            border-width: 1px;
+            flex: 1;
+            height: 40px;
+            border-color: grey;
+            border-style: solid;
+            font-size: 18px;
+            border-radius: 2px;
+            box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.1);
+
+
+        }
+
+        .search_box::placeholder {
+            padding-left: 15px;
+            font-size: 17px;
+        }
+
+
+        .search_button {
+
+            margin-left: -1px;
+            height: 44px;
+            width: 65px;
+
+            background-color: rgb(243, 240, 240);
+            border-color: grey;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 2px;
+
+        }
+
+        .search_icon {
+            height: 34px;
+            width: 23px;
+        }
+
+        .voice_button {
+            height: 40px;
+            width: 45px;
+            border: none;
+            border-radius: 20px;
+            margin-left: 8px;
+            background-color: rgb(250, 248, 248);
+        }
+
+        .voice_search_icon {
+            height: 25px;
+            width: 25px;
+            padding-top: 7px;
+
+        }
+
+        .upload_icon {
+            height: 30px;
+            width: 25px;
+
+        }
+
+        .youtube_apps {
+            height: 30px;
+            width: 25px;
+        }
+
+
+        .notification_icon {
+            height: 30px;
+            width: 25px;
+        }
+
+        .kuldeep_icon {
+            height: 30px;
+            width: 30px;
+            border-radius: 15px;
+        }
+
+        .round {
+            border: none;
+            background-color: white;
+        }
+
+
+
+
+        .side_header {
+            position: fixed;
+            padding-top: 10px;
+            top: 60px;
+            bottom: 0;
+            left: 0;
+            width: 90px;
+            background-color: white;
+            margin-left: 0;
+        }
+
+
+
+        .inner_side_header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .inner_side_header_container {
+            display: flex;
+            height: 80px;
+            flex-direction: column;
+            margin-left: 0;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 15px;
+            padding-bottom: -15px;
+
+        }
+
+        .side-header-icons {
+          height: 24px;  
+        }
+
+        .inner_side_header_container div{
+            font-size: 11px;
+            font-family: arial;
+            margin-top: 10px;
+        }
+
+        .inner_side_header_container:hover {
+            background-color: rgb(240, 236, 236);
+        }
+        
+
+
+
+        .card {
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            column-gap: 10px;
+            row-gap: 40px;
+
+        }
+
+        .card_images {
+            height: 200px;
+
+        }
+
+        .card_profile_div {
+            width: 40px;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 7px;
+        }
+
+        .card_information_div {
+            display: inline-block;
+            width: 255px;
+            margin-top: 0px;
+        }
+
+        .caption {
+            margin-top: 0px;
+            margin-top: 7px;
+            font-family: "roboto";
+            font-size: 17px;
+
+        }
+
+        .profile_name {
+            color: rgb(75, 70, 70);
+            margin-bottom: 0px;
+            font-size: 14px;
+        }
+
+        .views {
+            color: rgb(75, 70, 70);
+            margin-top: 4px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="left">
+            <button style="border:none;background-color: white;"><img class="hamburger_icon"
+                    src="youtube-icons/hamburger-menu.svg"></button>
+            <img class="youtube_icon" src="youtube-icons/youtube-logo.svg">
+
+        </div>
+
+
+        <div class="middle">
+            <input class="search_box" placeholder="Search">
+            <button class="search_button"><img class="search_icon" src="youtube-icons/search.svg"></button>
+            <button class="voice_button"><img class="voice_search_icon"
+                    src=youtube-icons/voice-search-icon.svg></button>
+        </div>
+
+
+        <div class="right">
+            <button class="round"><img class="upload_icon" src="youtube-icons/upload.svg"></button>
+            <button class="round"><img class="youtube_apps" src="youtube-icons/youtube-apps.svg"></button>
+            <button class="round"><img class="notification_icon" src="youtube-icons/notifications.svg"></button>
+            <img class="kuldeep_icon" src="youtube-icons/kuldeep-profile.jpg">
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="side_header">
+
+        <div class="inner_side_header">
+
+            <div class="inner_side_header_container"><img class="side-header-icons" src="youtube-icons/home.svg"><div>Home</div></div>
+            <div class="inner_side_header_container"><img class="side-header-icons" src="youtube-icons/explore.svg"><div>Explore</div></div>
+            <div class="inner_side_header_container"><img class="side-header-icons" src="youtube-icons/subscriptions.svg"><div>Subscription</div></div>
+            <div class="inner_side_header_container"><img class="side-header-icons" src="youtube-icons/originals.svg"><div>Originals</div></div>
+            <div class="inner_side_header_container"><img class="side-header-icons" src="youtube-icons/youtube-music.svg"><div style="padding-left: 6px;">YouTube Music</div></div>
+            <div class="inner_side_header_container"><img class="side-header-icons" src="youtube-icons/library.svg"><div>Library</div></div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_0845.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_1104.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_1164.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_1198.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_1271.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_1295.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_6195.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_6207.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_6225.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_6228.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_6233.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div><img class="card_images" src="shadi/DSC_6235.JPG"></div>
+
+            <div>
+
+                <div class="card_profile_div"><img class="kuldeep_icon card_profile"
+                        src="youtube-icons/kuldeep-profile.jpg"></div>
+
+                <div class="card_information_div">
+                    <p class="caption"><strong>Marriage ceremeny in my home full of enjoyment done</strong> </p>
+                    <p class="profile_name">Kuldeep Mahto</p>
+                    <p class="views">3.4M views. 2 months ago</p>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</body>
+
+</html>
